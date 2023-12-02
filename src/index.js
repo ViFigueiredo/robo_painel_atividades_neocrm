@@ -14,7 +14,7 @@ cron.schedule('00 20 * * *', () => {
     await testConnection(database);
     await createTable();
     const dataAPI = await consumoAPI();
-    // console.log(dataAPI);
+    console.log(dataAPI);
     await convertDataApi(dataAPI);
   } catch (error) {
     console.error('Ocorreu um erro:', error);

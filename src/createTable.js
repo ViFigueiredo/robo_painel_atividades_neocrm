@@ -4,8 +4,7 @@ const createTable = async () => {
   try {
     await painelAtividades.sync({ force: false, logging: false });
     console.log('Tabela sincronizada com sucesso!');
-    painelAtividades.truncate()
-  .then(() => {
+    await painelAtividades.truncate().then(() => {
     console.log('Tabela limpa com sucesso.');
   })
   .catch((err) => {
