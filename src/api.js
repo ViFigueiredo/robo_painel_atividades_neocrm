@@ -2,7 +2,7 @@ const axios = require('axios');
 // const date = require('./today');
 
 const consumoAPI = async () => {
-  const url = 'https://app.neosales.com.br/producao-painel-integration-v2';
+  const url = process.env.API_URL;
 
   try {
     await console.log('Baixando painel de produção VIVO...');
@@ -15,11 +15,11 @@ const consumoAPI = async () => {
         'Content-Type': 'application/json',
       },
       data: {
-        tokenEstrutura: 'd4f6286d-61f4-4fbb-9d4e-470f9bd8ea1d',
-        tokenUsuario: '1f105d5d-2cc8-4e16-b598-3f35a0ab317e',
-        dataHoraInicioCarga: '2023-01-01 06:00:00',
-        dataHoraFimCarga: '2023-12-31 20:00:00',
-        painelId: '15314',
+        tokenEstrutura: process.env.API_TOKEN_ESTRUTURA,
+        tokenUsuario: process.env.API_TOKEN_USUARIO,
+        dataHoraInicioCarga: process.env.API_DATE_START,
+        dataHoraFimCarga: process.env.API_DATE_END,
+        painelId: process.env.API_PAINEL_ID,
         outputFormat: 'json',
       },
     });

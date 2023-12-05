@@ -8,7 +8,7 @@ const convertDataApi = require('./convert');
 console.log('Aguardando inicio da aplicação...');
 
 // Agenda a tarefa para ser executada todos os dias às 20:00 (exceto sábados e domingos)
-cron.schedule('00 23 * * *', () => {
+cron.schedule(process.env.APP_CRON_START, () => {
 (async () => {
   try {
     await testConnection(database);
